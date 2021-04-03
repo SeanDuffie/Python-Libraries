@@ -1,0 +1,82 @@
+#!/usr/bin/python3
+import RPi.GPIO as GPIO
+from time import sleep
+import datetime
+
+GPIO.setwarnings(False)
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(5, GPIO.OUT)
+GPIO.setup(6, GPIO.IN)
+
+try:
+	on = 0.1
+	off = 0.1
+	i = GPIO.input(6)
+	while i == 0:
+		print("Tune Start")
+		GPIO.output(5,1)
+		print("  Buzz on")
+		sleep(on)
+		GPIO.output(5,0)
+		print("  Buzz off")
+		sleep(off*2)
+		GPIO.output(5,1)
+		print("  Buzz on")
+		sleep(on)
+		GPIO.output(5,0)
+		print("  Buzz off")
+		sleep(off*2)
+		GPIO.output(5,1)
+		print("  Buzz on")
+		sleep(on)
+		GPIO.output(5,0)
+		print("  Buzz off")
+		sleep(off*2)
+		GPIO.output(5,1)
+		print("  Buzz on")
+		sleep(on)
+		GPIO.output(5,0)
+		print("  Buzz off")
+		sleep(off*5)
+		GPIO.output(5,1)
+		print("  Buzz on")
+		sleep(on)
+		GPIO.output(5,0)
+		print("  Buzz off")
+		sleep(off*2)
+		GPIO.output(5,1)
+		print("  Buzz on")
+		sleep(on)
+		GPIO.output(5,0)
+		print("  Buzz off")
+		sleep(off*5)
+		GPIO.output(5,1)
+		print("  Buzz on")
+		sleep(on)
+		GPIO.output(5,0)
+		print("  Buzz off")
+		sleep(off*2)
+		GPIO.output(5,1)
+		print("  Buzz on")
+		sleep(on)
+		GPIO.output(5,0)
+		print("  Buzz off")
+		print("Tune Stop")
+		print()
+		
+		i = GPIO.input(6)
+		print("Pin 6 = ", i)
+		print()
+		print()
+		
+		sleep(1)
+	GPIO.cleanup()
+	print()
+	print("Button Pressed, Program Complete!")
+except:
+	GPIO.output(5,0)
+	GPIO.cleanup()
+	print()
+	print("Crashed")
+	exit
