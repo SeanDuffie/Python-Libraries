@@ -24,11 +24,11 @@ while True:
 		now = datetime.datetime.now()
 
 		C = "{:.2f}".format(tempC)
-		LCDlib.LCDCommand("84")
+		LCDlib.LCDCommand("8A")
 		LCDlib.LCDData(C)
         
 		F = "{:.2f}".format(tempF)
-		LCDlib.LCDCommand("C4")
+		LCDlib.LCDCommand("CA")
 		LCDlib.LCDData(F)
 		
 		print()
